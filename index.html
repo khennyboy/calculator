@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Simple Calculator using html and css</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      table {
+        border-collapse: collapse;
+        width: 400px;
+      }
+      table tr td {
+        padding: 10px;
+      }
+      button {
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        border: none;
+        font-size: 25px;
+      }
+      button#equal {
+        height: 180px;
+      }
+      input {
+        width: 100%;
+        padding: 30px 15px;
+        font-size: 35px;
+        text-align: right;
+        border: none;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="4">
+            <input type="text" id="result" placeholder="0" readonly />
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value=''">C</button></td>
+          <td><button onclick="result.value+='/'">/</button></td>
+          <td><button onclick="result.value+='*'">X</button></td>
+          <td>
+            <button onclick="result.value=result.value.slice(0, -1)">
+              del
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='7'">7</button></td>
+          <td><button onclick="result.value+='8'">8</button></td>
+          <td><button onclick="result.value+='9'">9</button></td>
+          <td><button onclick="result.value+='-'">-</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='4'">4</button></td>
+          <td><button onclick="result.value+='5'">5</button></td>
+          <td><button onclick="result.value+='6'">6</button></td>
+          <td><button onclick="result.value+='+'">+</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='1'">1</button></td>
+          <td><button onclick="result.value+='2'">2</button></td>
+          <td><button onclick="result.value+='3'">3</button></td>
+          <td rowspan="2">
+            <button id="equal" onclick="result.value=eval(result.value)">
+              =
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='%'">%</button></td>
+          <td><button onclick="result.value+='0'">0</button></td>
+          <td><button onclick="result.value+='.'">.</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
