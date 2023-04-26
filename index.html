@@ -2,36 +2,49 @@
 <html lang="en">
   <head>
     <title>Simple Calculator using html and css</title>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
     <style>
       * {
+        padding: 0px;
+        margin: 0px;
         box-sizing: border-box;
+        margin: auto;
       }
       table {
-        border-collapse: collapse;
-        width: 400px;
-      }
-      table tr td {
-        padding: 10px;
+        width: 300px;
+        min-height: 300px;
+        background-color: black;
+        padding: 2%;
       }
       button {
-        width: 80px;
-        height: 80px;
-        border-radius: 40px;
+        width: 60px;
+        border-radius: 60px;
+        min-height: 60px;
         border: none;
         font-size: 25px;
-      }
-      button#equal {
-        height: 180px;
+        margin: 5px;
+        color: white;
+        text-align: center;
+        line-height: 60px;
+        justify-content: center;
       }
       input {
         width: 100%;
-        padding: 30px 15px;
-        font-size: 35px;
-        text-align: right;
+        min-height: 150px;
         border: none;
-        outline: none;
+        text-align: right;
+        background-color: black;
+        color: white;
+        font-size: 50px;
+      }
+      .brown {
+        background-color: dimgray;
+      }
+      .orange {
+        background-color: orange;
       }
     </style>
   </head>
@@ -40,45 +53,72 @@
       <tbody>
         <tr>
           <td colspan="4">
-            <input type="text" id="result" placeholder="0" readonly />
+            <input
+              type="text"
+              id="result"
+              placeholder="0"
+              class="screen_color"
+              readonly
+            />
           </td>
         </tr>
         <tr>
-          <td><button onclick="result.value=''">C</button></td>
-          <td><button onclick="result.value+='/'">/</button></td>
-          <td><button onclick="result.value+='*'">X</button></td>
+          <td><button onclick="result.value=''" class="orange">C</button></td>
           <td>
-            <button onclick="result.value=result.value.slice(0, -1)">
-              del
+            <button onclick="result.value+='/'" class="orange">&divide;</button>
+          </td>
+          <td>
+            <button onclick="result.value+='*'" class="orange">&times;</button>
+          </td>
+          <td>
+            <button
+              onclick="result.value=result.value.slice(0, -1)"
+              class="orange"
+            >
+              <i class="fa fa-backspace"></i>
             </button>
           </td>
         </tr>
         <tr>
-          <td><button onclick="result.value+='7'">7</button></td>
-          <td><button onclick="result.value+='8'">8</button></td>
-          <td><button onclick="result.value+='9'">9</button></td>
-          <td><button onclick="result.value+='-'">-</button></td>
-        </tr>
-        <tr>
-          <td><button onclick="result.value+='4'">4</button></td>
-          <td><button onclick="result.value+='5'">5</button></td>
-          <td><button onclick="result.value+='6'">6</button></td>
-          <td><button onclick="result.value+='+'">+</button></td>
-        </tr>
-        <tr>
-          <td><button onclick="result.value+='1'">1</button></td>
-          <td><button onclick="result.value+='2'">2</button></td>
-          <td><button onclick="result.value+='3'">3</button></td>
-          <td rowspan="2">
-            <button id="equal" onclick="result.value=eval(result.value)">
-              =
-            </button>
+          <td><button onclick="result.value+='7'" class="brown">7</button></td>
+          <td><button onclick="result.value+='8'" class="brown">8</button></td>
+          <td><button onclick="result.value+='9'" class="brown">9</button></td>
+          <td>
+            <button onclick="result.value+='-'" class="orange">&minus;</button>
           </td>
         </tr>
         <tr>
-          <td><button onclick="result.value+='%'">%</button></td>
-          <td><button onclick="result.value+='0'">0</button></td>
-          <td><button onclick="result.value+='.'">.</button></td>
+          <td><button onclick="result.value+='4'" class="brown">4</button></td>
+          <td><button onclick="result.value+='5'" class="brown">5</button></td>
+          <td><button onclick="result.value+='6'" class="brown">6</button></td>
+          <td>
+            <button onclick="result.value+='+'" class="orange">&plus;</button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='1'" class="brown">1</button></td>
+          <td><button onclick="result.value+='2'" class="brown">2</button></td>
+          <td><button onclick="result.value+='3'" class="brown">3</button></td>
+          <td>
+            <button onclick="result.value+='/'" class="orange">&#x2215;</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button onclick="result.value+='%'" class="brown">&percnt;</button>
+          </td>
+          <td><button onclick="result.value+='0'" class="brown">0</button></td>
+          <td><button onclick="result.value+='.'" class="brown">.</button></td>
+
+          <td>
+            <button
+              id="equal"
+              onclick="result.value=eval(result.value)"
+              class="orange"
+            >
+              &equals;
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
