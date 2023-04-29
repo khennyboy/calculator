@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Simple Calculator using html and css</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale="1.0" "/>
+    <script
+      src="https://kit.fontawesome.com/42b041bc5f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        margin: auto;
+      }
+      table {
+        width: 300px;
+        min-height: 400px;
+        background-color: black;
+        padding: 2%;
+      }
+      button {
+        width: 70px;
+        border-radius: 50%;
+        min-height: 70px;
+        border: none;
+        font-size: 30px;
+        margin: 5px;
+        color: white;
+        text-align: center;
+        line-height: 60px;
+        justify-content: center;
+      }
+      input {
+        width: 100%;
+        min-height: 150px;
+        border: none;
+        text-align: right;
+        background-color: black;
+        color: white;
+        font-size: 50px;
+      }
+      .brown {
+        background-color: dimgray;
+      }
+      .orange {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td colspan="4">
+            <input
+              type="text"
+              id="result"
+              placeholder="0"
+              class="screen_color"
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value=''" class="orange">C</button></td>
+          <td>
+            <button onclick="result.value+='/'" class="orange">&divide;</button>
+          </td>
+          <td>
+            <button onclick="result.value+='*'" class="orange">&times;</button>
+          </td>
+          <td>
+            <button
+              onclick="result.value=result.value.slice(0, -1)"
+              class="orange"
+            >
+              <i class="fas fa-backspace"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='7'" class="brown">7</button></td>
+          <td><button onclick="result.value+='8'" class="brown">8</button></td>
+          <td><button onclick="result.value+='9'" class="brown">9</button></td>
+          <td>
+            <button onclick="result.value+='-'" class="orange">&minus;</button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='4'" class="brown">4</button></td>
+          <td><button onclick="result.value+='5'" class="brown">5</button></td>
+          <td><button onclick="result.value+='6'" class="brown">6</button></td>
+          <td>
+            <button onclick="result.value+='+'" class="orange">&plus;</button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="result.value+='1'" class="brown">1</button></td>
+          <td><button onclick="result.value+='2'" class="brown">2</button></td>
+          <td><button onclick="result.value+='3'" class="brown">3</button></td>
+          <td>
+            <button onclick="result.value+='/'" class="orange">&#x2215;</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button onclick="result.value+='%'" class="brown">&percnt;</button>
+          </td>
+          <td><button onclick="result.value+='0'" class="brown">0</button></td>
+          <td><button onclick="result.value+='.'" class="brown">.</button></td>
+
+          <td>
+            <button
+              id="equal"
+              onclick="result.value=eval(result.value)"
+              class="orange"
+            >
+              &equals;
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
