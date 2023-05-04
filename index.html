@@ -149,7 +149,11 @@
       const display = document.querySelector("#display");
       del.onclick = () => {
         display.value = display.value.slice(0, -1);
-        result.value = eval(display.value);
+        if (display.value != "") {
+          result.value = eval(display.value);
+        } else {
+          result.value = "";
+        }
       };
     </script>
   </body>
