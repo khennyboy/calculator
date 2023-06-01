@@ -127,12 +127,15 @@
     <script>
       var open = document.querySelector("#opennav");
       var nav = document.querySelector(".small-screen nav ul");
+      var isOpen = false;
 
       open.addEventListener("click", function () {
-        if (nav.style.width == "0px") {
+        if (isOpen == false) {
           nav.style.width = "40%";
+          isOpen = true;
         } else {
-          nav.style.width = "0px";
+          nav.style.width = "0%";
+          isOpen = false;
         }
       });
       // Javascript code for the drop down links in the side bar menu

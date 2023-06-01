@@ -33,7 +33,7 @@ div.small-screen nav ul {
 	background-color: orange;
 	height: 100%;
 	position: fixed;
-	width: 0px;
+	width: 0;
 }
 /* adding padding to the first element */
 div.small-screen nav ul li:first-child{
