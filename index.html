@@ -16,28 +16,31 @@
       <h1>Edutech</h1>
       <div class="icon">
         <!-- The icon to show on small screen -->
-        <span id="opennav"><i class="fas fa-bars"></i></span>
+        <span id="opennav"><i class="fa fa-bars"></i></span>
       </div>
       <!-- the nav to show on small screen -->
       <div class="small-screen">
         <nav>
           <ul>
             <li>
-              <a href="#"><i class="fas fa-home"></i>&nbsp;Home</a>
+              <a href="#"><i class="fa fa-home"></i>&nbsp;Home</a>
             </li>
-            <!-- The sub list menu to be shown on small screen -->
-            <li class="dd1">
-              <a href="#"><i class="fas fa-book"></i>&nbsp;Courses</a>
-              <div class="dd-content1">
+            <li>
+              <label for="Course"
+                ><i class="fa fa-book"></i> Courses
+                <i class="fa fa-chevron-down" id="down"></i>
+                <i class="fa fa-chevron-up" id="up"></i
+              ></label>
+              <div id="sublist">
                 <a href="#">Engineering</a>
                 <a href="#">Biochemistry</a>
               </div>
             </li>
             <li>
-              <a href="#"> <i class="fas fa-building"></i>&nbsp;About</a>
+              <a href="#"> <i class="fa fa-building"></i>&nbsp;About</a>
             </li>
             <li>
-              <a href="#"><i class="fas fa-phone"></i>&nbsp;Contact</a>
+              <a href="#"><i class="fa fa-phone"></i>&nbsp;Contact</a>
             </li>
           </ul>
         </nav>
@@ -48,18 +51,18 @@
         <nav>
           <ul>
             <li>
-              <a href="#"><i class="fas fa-home"></i>&nbsp;Home</a>
+              <a href="#"><i class="fa fa-home"></i>&nbsp;Home</a>
             </li>
             <!-- The sub list menu to be shown on large screen -->
             <li class="dd">
-              <a href="#"><i class="fas fa-book"></i>&nbsp;Courses</a>
+              <a href="#"><i class="fa fa-book"></i>&nbsp;Courses</a>
               <div class="dd-content">
                 <a href="#">Engineering</a>
                 <a href="#">Biochemistry</a>
               </div>
             </li>
             <li>
-              <a href="#"> <i class="fas fa-building"></i>&nbsp;About</a>
+              <a href="#"> <i class="fa fa-building"></i>&nbsp;About</a>
             </li>
             <li>
               <a href="#"><i class="fa fa-phone"></i>&nbsp;Contact</a>
@@ -106,16 +109,25 @@
       <section>
         <h2>Contact Us</h2>
         <form>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-
-          <input type="submit" value="Submit" />
+          <table>
+            <tr>
+              <td><label for="name">Name:</label></td>
+              <td><input type="text" id="name" name="name" required /></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email:</label></td>
+              <td><input type="email" id="email" name="email" required /></td>
+            </tr>
+            <tr>
+              <td><label for="message">Message:</label></td>
+              <td>
+                <textarea id="message" name="message" required></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="submit" value="Submit" /></td>
+            </tr>
+          </table>
         </form>
       </section>
     </main>
@@ -127,36 +139,39 @@
     <script>
       var open = document.querySelector("#opennav");
       var nav = document.querySelector(".small-screen nav ul");
+      var dropdown = document.querySelector("div.small-screen nav ul li label");
+      var content = document.querySelector(
+        "div.small-screen nav ul li div#sublist"
+      );
+      var upbar = document.querySelector("div.small-screen nav ul li i#up");
+      var downbar = document.querySelector("div.small-screen nav ul li i#down");
       var isOpen = false;
+      var isOpen2 = false;
 
       open.addEventListener("click", function () {
         if (isOpen == false) {
-          nav.style.width = "40%";
+          nav.style.display = "block";
+          content.style.display = "none";
           isOpen = true;
         } else {
-          nav.style.width = "0%";
+          nav.style.display = "none";
+          content.style.display = "none";
           isOpen = false;
         }
       });
-      // Javascript code for the drop down links in the side bar menu
-      /*Loop through all dropdown buttons to toggle between hiding and showing its dropdown content -
-       This allows the user to have multiple dropdowns without any conflict*/
+      dropdown.addEventListener("click", function () {
+        if (content.style.display == "none") {
+          content.style.display = "block";
+          downbar.style.display = "none";
+          upbar.style.display = "inline-block";
+          isOpen2 = true;
+        } else {
+          content.style.display = "none";
+          upbar.style.display = "none";
+          downbar.style.display = "inline-block";
+          isOpen2 = false;
+        }
+      });
     </script>
   </body>
 </html>
-<!-- 
-     var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var dropdownContent = this.nextElementSibling;
-          if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-          } else {
-            dropdownContent.style.display = "block";
-          }
-        });
-      }
- -->
